@@ -1,0 +1,7 @@
+C:\Users\poppf\Documents\Visual Studio 2017\Projects\Grades\Grades\obj\Debug\Grades.csprojResolveAssemblyReference.cache
+C:\Users\poppf\Documents\Visual Studio 2017\Projects\Grades\Grades\obj\Debug\Grades.csproj.CoreCompileInputs.cache
+C:\Users\poppf\Documents\Visual Studio 2017\Projects\Grades\Grades\bin\Debug\Grades.exe.config
+C:\Users\poppf\Documents\Visual Studio 2017\Projects\Grades\Grades\bin\Debug\Grades.exe
+C:\Users\poppf\Documents\Visual Studio 2017\Projects\Grades\Grades\bin\Debug\Grades.pdb
+C:\Users\poppf\Documents\Visual Studio 2017\Projects\Grades\Grades\obj\Debug\Grades.exe
+C:\Users\poppf\Documents\Visual Studio 2017\Projects\Grades\Grades\obj\Debug\Grades.pdb
