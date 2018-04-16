@@ -8,8 +8,15 @@ namespace Grades
 {
     public class GradeBook
     {
-        public GradeBook()
+        //public GradeBook()
+        //    : this("No name")
+        //{
+        //    grades = new List<float>();
+        //}
+
+        public GradeBook(string name = "There is no name")
         {
+            Name = name;
             grades = new List<float>();
         }
         public void AddGrade(float grade)
@@ -35,7 +42,13 @@ namespace Grades
             return stats;
         }
 
-        public string Name;
+        public string Name
+        {
+            get;
+            set;
+        }
+
+        
 
         private List<float> grades;
     }

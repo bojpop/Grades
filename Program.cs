@@ -30,18 +30,16 @@ namespace Grades
             //Immutable();
             //PassByValueAndRef();
 
-            GradeBook book = new GradeBook();
+            GradeBook book = new GradeBook("Scott's book");
             book.AddGrade(91f);
             book.AddGrade(89.1f);
             book.AddGrade(75f);
 
             GradeStatistics stats = book.ComputeStatistics();
 
-            WriteNames("Pop", "Dida", "Darkec", "Stepa");
+            WriteNames(book.Name);
 
-            int number = 20;
-            WriteBytes(number);
-            WriteBytes(stats.AverageGrade);
+            
 
             Console.WriteLine(stats.AverageGrade);
             Console.WriteLine(stats.LowestGrade);
