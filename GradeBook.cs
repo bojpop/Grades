@@ -42,13 +42,29 @@ namespace Grades
             return stats;
         }
 
+        private string _name;
+
         public string Name
         {
-            get;
-            set;
+            get { return _name; }
+            set
+            {
+                if (_name!=value)
+                {
+                    var oldValue = _name;
+                    _name = value;
+                    if (NameChanged != null)
+                    {
+                        NameChangedEventArgs args = new NameChangedEventArgs();
+                        args.OldValue = oldValue;
+                        args.NewValue = value;
+                        NameChanged(this, args);
+                    }
+                }
+            }
         }
 
-        
+        public event NamedChangedDelegate NameChanged;
 
         private List<float> grades;
     }
