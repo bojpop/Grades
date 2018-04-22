@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Speech.Synthesis;
+using System.IO;
 
 namespace Grades
 {
@@ -31,10 +32,50 @@ namespace Grades
             //PassByValueAndRef();
 
             GradeBook book = new GradeBook("Scott's book");
-            book.AddGrade(91f);
-            book.AddGrade(89.1f);
-            book.AddGrade(75f);
 
+            try
+            {
+                using (FileStream stream = File.Open("grades.txt", FileMode.Open))
+                using (StreamReader reader = new StreamReader(stream))
+                {
+                    string line = reader.ReadLine();
+                    while (line != null)
+                    {
+                        float grade = float.Parse(line);
+                        book.AddGrade(grade);
+                        line = reader.ReadLine();
+                    }
+                }
+            }
+            catch (FileNotFoundException ex)
+            {
+                Console.WriteLine("Could not locate the file grades.txt");
+                return;
+            }
+            catch (UnauthorizedAccessException ex)
+            {
+                Console.WriteLine("No access");
+                return;
+            }
+
+            book.WriteGrades(Console.Out);
+
+            try
+            {
+                Console.WriteLine("Please enter a name for the book");
+                string priv = Console.ReadLine();
+                while (priv=="")
+                {
+                    Console.WriteLine("Please insert correct value");
+                    priv = Console.ReadLine();
+                }
+                book.Name = priv;
+            }
+            catch (ArgumentException ex)
+            {
+                Console.WriteLine("Invalid name");
+            }
+            
             GradeStatistics stats = book.ComputeStatistics();
 
             //book.NameChanged += OnNameChanged;
@@ -46,7 +87,7 @@ namespace Grades
 
             //WriteNames(book.Name);
 
-            
+            Console.WriteLine(book.Name);
 
             Console.WriteLine(stats.AverageGrade);
             Console.WriteLine(stats.LowestGrade);

@@ -11,3 +11,4 @@ C:\Users\bojan.m.popovic\Documents\GitHub\Grades\obj\Debug\Grades.pdb
 C:\Users\bojan.m.popovic\Documents\GitHub\Grades\bin\Debug\Grades.exe
 C:\Users\bojan.m.popovic\Documents\GitHub\Grades\bin\Debug\Grades.pdb
 C:\Users\bojan.m.popovic\Documents\GitHub\Grades\obj\Debug\Grades.csprojResolveAssemblyReference.cache
+C:\Users\poppf\Documents\Visual Studio 2017\Projects\Grades\Grades\bin\Debug\Grades.txt
