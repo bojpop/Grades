@@ -31,7 +31,7 @@ namespace Grades
             //Immutable();
             //PassByValueAndRef();
 
-            GradeBook book = new GradeBook("Scott's book");
+            IGradeTracker book = CreateGradeBook();
 
             try
             {
@@ -58,20 +58,26 @@ namespace Grades
                 return;
             }
 
-            book.WriteGrades(Console.Out);
+            //book.DoSomething();
+            //book.WriteGrades(Console.Out);
+
+            foreach (float grade in book)
+            {
+                Console.WriteLine(grade);
+            }
 
             try
             {
-                Console.WriteLine("Please enter a name for the book");
-                string priv = Console.ReadLine();
-                while (priv=="")
-                {
-                    Console.WriteLine("Please insert correct value");
-                    priv = Console.ReadLine();
-                }
-                book.Name = priv;
+                //Console.WriteLine("Please enter a name for the book");
+                //string priv = Console.ReadLine();
+                //while (priv=="")
+                //{
+                //    Console.WriteLine("Please insert correct value");
+                //    priv = Console.ReadLine();
+                //}
+                //book.Name = priv;
             }
-            catch (ArgumentException ex)
+            catch (ArgumentException)
             {
                 Console.WriteLine("Invalid name");
             }
@@ -93,6 +99,12 @@ namespace Grades
             Console.WriteLine(stats.LowestGrade);
             Console.WriteLine(stats.HighestGrade);
             Console.WriteLine("{0} {1}", stats.LetterGrade, stats.Description);
+        }
+
+        private static IGradeTracker CreateGradeBook()
+        {
+            IGradeTracker book = new ThrowAwayGrade("Scott's book");
+            return book;
         }
 
         //private static void OnNameChanged2(object sender, NameChangedEventArgs args)
